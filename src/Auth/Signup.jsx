@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Auth.css"; // Ensure you have a CSS file for styling
+import { AuthContext } from "./AuthContext"; // Import AuthContext
+import "./Auth.css"; 
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { signup } = useContext(AuthContext); // Use signup function from context
   const navigate = useNavigate();
 
   const handleSignup = () => {
@@ -14,8 +16,13 @@ const Signup = () => {
       return;
     }
 
-    localStorage.setItem("user", JSON.stringify({ email, password }));
-    navigate("/");
+    const success = signup(email, password); // Call signup function
+
+    if (success) {
+      navigate("/"); // Redirect to login after successful signup
+    } else {
+      setError("User already exists! Please log in.");
+    }
   };
 
   return (
@@ -43,3 +50,49 @@ const Signup = () => {
 };
 
 export default Signup;
+
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import "./Auth.css"; // Ensure you have a CSS file for styling
+
+// const Signup = () => {
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [error, setError] = useState("");
+//   const navigate = useNavigate();
+
+//   const handleSignup = () => {
+//     if (!email || !password) {
+//       setError("Both fields are required!");
+//       return;
+//     }
+
+//     localStorage.setItem("user", JSON.stringify({ email, password }));
+//     navigate("/");
+//   };
+
+//   return (
+//     <div className="auth-container">
+//       <h2>Sign Up</h2>
+//       {error && <p className="auth-error">{error}</p>}
+//       <input
+//         type="email"
+//         placeholder="Email"
+//         value={email}
+//         onChange={(e) => setEmail(e.target.value)}
+//       />
+//       <input
+//         type="password"
+//         placeholder="Password"
+//         value={password}
+//         onChange={(e) => setPassword(e.target.value)}
+//       />
+//       <button onClick={handleSignup}>Sign Up</button>
+//       <p>
+//         Already have an account? <a href="/">Login</a>
+//       </p>
+//     </div>
+//   );
+// };
+
+// export default Signup;
