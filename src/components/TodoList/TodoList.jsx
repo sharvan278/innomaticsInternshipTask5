@@ -17,7 +17,7 @@ const TodoList = ({ todos, removeTodo }) => {
                     {todo.priority}
                   </span>
                   <span className="due-date">{todo.dueDate}</span>
-                  <button className="delete-btn" onClick={() => removeTodo(todo.id)}>completed</button>
+                  <button className="delete-btn" onClick={() => removeTodo(todo.id)}>✓</button>
                 </div>
               ))}
           </div>

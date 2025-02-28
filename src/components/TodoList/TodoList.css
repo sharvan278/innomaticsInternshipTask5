@@ -22,7 +22,7 @@
 } */
 
 .todo-text {
-  flex: 0 0 40%;
+  flex: 0 0 35%;
   font-size: 16px;
   color: #333;
   word-wrap: break-word; /* Allows breaking words */
@@ -70,7 +70,7 @@
   background: #ff4d4d;
   border: none;
   color: white;
-  padding: 6px;
+  padding: 3px;
   cursor: pointer;
   border-radius: 4px;
   transition: background 0.3s ease;
