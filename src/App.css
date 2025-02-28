@@ -147,6 +147,47 @@ body {
   color: red;
 }
 
+/* .logout-button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  margin: 20px auto;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  border-radius: 5px;
+} */
+
+.logout-button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  display: block;  /* Ensures full width usage */
+  width: 100%; /* Makes it same width as the "Add" button */
+  max-width: 200px; /* Limits button width */
+  text-align: center;
+  margin: 20px auto; /* Centers it */
+  font-size: 16px;
+  border-radius: 5px;
+  position: relative; /* Removes unwanted offset */
+  left: auto;
+  bottom: auto;
+  transform: none;
+}
+
+
+.logout-button:hover {
+  background-color: darkred;
+}
+
+
 /* Responsive Design */
 @media (max-width: 600px) {
   .app {
